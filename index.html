@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Portfolio Website</title>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <style type="text/tailwindcss">
+
+    .bg-clip-text {
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .active-tab {
+      @apply px-6 py-4 rounded-lg bg-purple-600 text-white font-semibold shadow-md hover:bg-purple-700 transition;
+    }
+    
+    /* .active-tab {
+      @apply bg-gradient-to-r from-purple-500 to-blue-500 hover:bg-purple-700 px-6 py-2 rounded-lg transition;
+    } */
+    </style>
+  </head>
+  <body class="bg-white text-gray-900">
+    <!-- Background Glow balls -->
+    <div
+      class="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden bg-[#040015] pointer-events-none"
+    >
+      <div
+        class="absolute top-10 left-10 w-80 h-80 bg-purple-500 rounded-full opacity-30 blur-[110px]"
+      ></div>
+
+      <div
+        class="absolute top-20 right-20 w-72 h-72 bg-cyan-400 rounded-full opacity-30 blur-[110px]"
+      ></div>
+
+      <div
+        class="absolute bottom-16 left-28 w-96 h-96 bg-pink-500 rounded-full opacity-30 blur-[110px]"
+      ></div>
+
+      <div
+        class="absolute bottom-10 right-10 w-64 h-64 bg-blue-500 rounded-full opacity-30 blur-[110px]"
+      ></div>
+    </div>
+    <!-- navbar Section -->
+    <header class="fixed w-full z-50 backdrop-blur-3xl text-white shadow">
+      <div
+        class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <div class="text-xl font-bold text-indigo-400 tracking-white">
+          Portfolio
+        </div>
+        <nav class="space-x-6 hidden md:flex">
+          <a
+            href="#home"
+            class="hover:text-indigo-400 relative group transition"
+            >Home
+
+            <span
+              class="absolute left-1/2 bottom-0 w-0 h-[2px] bg-indigo-400 transition-all duration-300 origin-center transform -translate-x-1/2 group-hover:w-full"
+            ></span>
+          </a>
+          <a
+            href="#about"
+            class="hover:text-indigo-400 relative group transition"
+            >About
+            <span
+              class="absolute left-1/2 bottom-0 w-0 h-[2px] bg-indigo-400 transition-all duration-300 origin-center transform -translate-x-1/2 group-hover:w-full"
+            ></span>
+          </a>
+          <a
+            href="#tech"
+            class="hover:text-indigo-400 relative group transition"
+            >Skills
+            <span
+              class="absolute left-1/2 bottom-0 w-0 h-[2px] bg-indigo-400 transition-all duration-300 origin-center transform -translate-x-1/2 group-hover:w-full"
+            ></span>
+          </a>
+          <a
+            href="#projects"
+            class="hover:text-indigo-400 relative group transition"
+            >Projects
+            <span
+              class="absolute left-1/2 bottom-0 w-0 h-[2px] bg-indigo-400 transition-all duration-300 origin-center transform -translate-x-1/2 group-hover:w-full"
+            ></span>
+          </a>
+          <a
+            href="#contact"
+            class="hover:text-indigo-400 relative group transition"
+            >Contact
+            <span
+              class="absolute left-1/2 bottom-0 w-0 h-[2px] bg-indigo-400 transition-all duration-300 origin-center transform -translate-x-1/2 group-hover:w-full"
+            ></span>
+          </a>
+        </nav>
+      </div>
+    </header>
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="min-h-screen flex items-center justify-center px-6 pt-28 pb-16 bg-transparent text-white relative"
+    >
+      <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center" data-aos="fade-up">
+        <!-- Left Side: Text -->
+        <div class="space-y-6" data-aos="fade-up">
+          <p class="text-sm text-indigo-500">Hello there, I’m</p>
+          <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+            Shaza Hamdy
+          </h1>
+          <h2 class="text-2xl md:text-3xl font-semibold text-indigo-400">
+            Frontend Web Developer
+          </h2>
+          <p class="text-gray-400 max-w-md">
+            I build responsive, accessible, and modern web experiences using
+            HTML, CSS, JavaScript, and React.
+          </p>
+          <div class="flex gap-3 items-center" data-aos="fade-up"    >
+            <div
+              class="px-2 py-1 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white shadow"
+            >
+              HTML
+            </div>
+            <div
+              class="px-2 py-1 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white shadow"
+            >
+              Css
+            </div>
+            <div
+              class="px-2 py-1 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white shadow"
+            >
+              JavaScript
+            </div>
+            <div
+              class="px-2 py-1 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white shadow"
+            >
+              tailwindcss
+            </div>
+            <div
+              class="px-2 py-1 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white shadow"
+            >
+              React
+            </div>
+            
+          </div>
+            
+          <!-- Buttons -->
+          <div class="flex gap-4" data-aos="fade-up"    >
+            <a
+              href="#contact"
+              class="bg-indigo-600 hover:bg-purple-700 text-white px-6 py-2 rounded-lg transition"
+            >
+              Contact Me
+            </a>
+            <a
+              href="#projects"
+              class="border border-indigo-500 hover:bg-purple-600 text-white px-6 py-2 rounded-lg transition"
+            >
+              See Projects
+            </a>
+          </div>
+          <div class="flex gap-4 mt-8 mx-8" data-aos="fade-up"    >
+            <span class="bg-white/10 backdrop-blur-md border border-white/20 p-1 rounded-full shadow-lg"> <a href="https://github.com/Shaza-Elshimy" target="_blank" rel="noopener">
+              <img src="github.png" alt="LinkedIn" class="w-8 h-8 hover:scale-110 transition" />
+            </a></span>
+           
+            <span class="bg-white/10 backdrop-blur-md border border-white/20 p-1 rounded-full shadow-lg"><a href="https://www.instagram.com/shaza1379?igsh=dTFlNmVscnZ1bmln" target="_blank" rel="noopener">
+              <img src="instagram.png" alt="GitHub" class="w-8 h-8 hover:scale-110 transition" />
+            </a></span>
+            <span class="bg-white/10 backdrop-blur-md border border-white/20 p-1 rounded-full shadow-lg"><a href="https://www.linkedin.com/in/shaza-elshimy-141a05344" target="_blank" rel="noopener">
+              <img src="linkedin.png" alt="Twitter" class="w-8 h-8 hover:scale-110 transition" />
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Side: Image -->
+        <div class="flex justify-center" data-aos="fade-left"    >
+          <img
+            src="hero.png"
+            alt="Hero illustration"
+            class="w-[300px] md:w-[400px] drop-shadow-xl"
+          />
+        </div>
+      </div>
+    </section>
+    <!--about me section-->
+    <section id="about" class="py-24 px-6 text-white">
+    <div class="max-w-6xl mx-auto text-center mb-12" data-aos="fade-up"    >
+        <span class="font-bold text-3xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 uppercase tracking-widest">About me</span>
+    </div>
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 items-center gap-12">
+    <!-- Left Side (Content) -->
+    <div class="space-y-6 text-left" data-aos="fade-right"    >
+      <h2 class="text-3xl md:text-4xl font-bold text-white">
+        Hello, I'm <span class="font-bold text-3xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Shaza Hamdy</span>
+      </h2>
+      <p class="text-gray-200 leading-relaxed">
+        A frontend developer focused on building responsive and modern websites using HTML, CSS, JavaScript, and React. I love transforming designs into real, accessible web experiences.
+      </p>
+      <div class="flex gap-4" data-aos="fade-up"    >
+        <a href="#" class="bg-gradient-to-r from-purple-500 to-blue-500 hover:bg-purple-700 px-6 py-2 rounded-lg transition duration-300 hover:scale-105">Download CV</a>
+        <a href="#Projects" class="border border-white hover:bg-purple-600  text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 px-6 py-2 rounded-lg transition duration-300 hover:scale-105">View Projects</a>
+      </div>
+    </div>
+    <!-- Right Side (Image Circle Glow) -->
+    <div class="flex justify-center" data-aos="fade-left"    >
+      <div class="w-[250px] h-[250px] rounded-full p-1 bg-gradient-to-tr from-purple-600 to-blue-500 ">
+        <div class="w-full h-full rounded-full bg-[#0f0f2d] flex items-center justify-center">
+          <img src="personal.jpg" alt="My photo" class="w-[245px] h-[245px] rounded-full object-cover shadow-lg">
+        </div>
+      </div>
+    </div>
+</div>
+<!-- 3 cards Section -->
+<div class="py-16 px-6 text-white max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-center">
+    <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg transition duration-300 hover:scale-105" data-aos="fade-right"    >
+        <div class="flex items-center justify-between gap-2 mb-4">
+         <span class="bg-white/10 backdrop-blur-md border border-white/20 p-1 rounded-full shadow-lg"><img src="code.png" alt="Projects" class="w-8 h-8"></span>
+         <span>11</span>
+        </div>
+        <p>Projects</p>  
+        <p class="text-gray-300 mt-2 text-sm">
+          A collection of real-world projects showcasing my frontend development skills and creativity.
+        </p>
+    </div>
+    <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg transition duration-300 hover:scale-105" data-aos="fade-up"    >
+        <div class="flex items-center justify-between gap-2 mb-4">
+            <span class="bg-white/10 backdrop-blur-md border border-white/20 p-1 rounded-full shadow-lg"><img src="award.png" alt="Certificates" class="w-8 h-8"></span>
+            <span>7</span>
+        </div>
+        <p>Certificates</p>
+        <p class="text-gray-300 mt-2 text-sm">
+          Certified achievements in web development and programming from recognized platforms.
+        </p>
+    </div>
+    <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg transition duration-300 hover:scale-105" data-aos="fade-left"    >
+        <div class="flex items-center justify-between gap-2 mb-4">
+            <span class="bg-white/10 backdrop-blur-md border border-white/20 p-1 rounded-full shadow-lg"><img src="skill.png" alt="Skills" class="w-8 h-8"></span>
+            <span>3</span>
+        </div>
+        <p>Skills</p>
+        <p class="text-gray-300 mt-2 text-sm">
+          Proficient in HTML, CSS, JavaScript, React, and modern frontend technologies.
+        </p>
+    </div>
+</div>
+
+    </section>
+    <!--tabs section-->
+    <section class="py-24 px-6 text-white">
+      <div class="max-w-6xl mx-auto text-center" data-aos="fade-up"    >
+        <span class="font-bold text-3xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Portfolio Showcase</span>
+        <p class="text-gray-400 text-lg mt-6 leading-relaxed">Explore my journey through projects, certificates, and tech stack. Each section  
+      </p>
+      <p class="text-gray-400 text-lg leading-relaxed">  
+       represents a milestone in my continuous learning path.</p>
+      </div>
+      <!-- Tabs -->
+      <div class="mt-10 flex justify-center gap-6 flex-wrap">
+         <button data-tab="projects" class="active-tab tab-button  px-6 py-4 rounded-lg bg-gray-700 text-white font-semibold shadow-md hover:bg-gray-600 transition" data-aos="fade-right"    >
+           Projects
+         </button>
+         <button data-tab="certificates" class="tab-button px-6 py-4 rounded-lg bg-gray-700 text-white font-semibold shadow-md hover:bg-gray-600 transition" data-aos="fade-up"    >
+           Certificates
+         </button>
+         <button data-tab="tech" class="tab-button px-6 py-4 rounded-lg bg-gray-700 text-white font-semibold shadow-md hover:bg-gray-600 transition" data-aos="fade-left"    >
+           Tech Stack
+         </button>
+      </div>
+      <!--tabs section-->
+       <div class="mt-10">
+        <!-- Projects Section -->
+        <div class="tab-content opacity-100 pointer-events-auto relative" id="projects">
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg" data-aos="fade-up-right"    >
+              <img src="project1.png" alt="Project 1" class="w-full object-contain rounded-md mb-4">
+              <h3 class="text-lg font-semibold">Gaming Website</h3>
+              <p class="text-gray-300 mt-2">HTML, CSS, JS project for gaming enthusiasts.</p>
+              <div class="mt-4 flex justify-between items-center">
+                <a href="https://project-games-neon.vercel.app/" class="text-blue-500 hover:underline">Live Demo</a>
+                <a href="#" class="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-md shadow-lg">Details</a>
+              </div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg" data-aos="fade-up" >
+              <img src="project2.png" alt="Project 2" class="w-full object-contain rounded-md mb-4">
+              <h3 class="text-lg font-semibold">Rabin-karp text search</h3>
+              <p class="text-gray-300 mt-2">HTML, CSS, JS implementation of the Rabin-Karp  algorithm.</p>
+              <div class="mt-4 flex justify-between items-center">
+                <a href="#" class="text-blue-500 hover:underline">Live Demo</a>
+                <a href="#" class="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-md shadow-lg">Details</a>
+              </div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg" data-aos="fade-up-left"  ="10000">
+              <img src="project3.png" alt="Project 3" class="w-full object-contain rounded-md mb-4">
+              <h3 class="text-lg font-semibold">Delivery tracker</h3>
+              <p class="text-gray-300 mt-2">HTML, CSS, JS project for a delivery tracker application.</p>
+              <div class="mt-4 flex justify-between items-center">
+                <a href="#" class="text-blue-500 hover:underline">Live Demo</a>
+                <a href="#" class="bg-white/10 backdrop-blur-md border border-white/20 p-2 rounded-md shadow-lg">Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- certification Section -->
+        <div class="tab-content opacity-0 pointer-events-none absolute" id="certificates">
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg" data-aos="fade-up-right"  ="10000">
+              <img src="certeficate1.png" alt="Certificate 1" class="w-full object-contain rounded-md">
+            </div>
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg" data-aos="fade-up"  ="10000">
+              <img src="certeficate2.png" alt="Certificate 2" class="w-full object-contain rounded-md">
+            </div>
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg" data-aos="fade-up-left"  ="10000">
+              <img src="certeficate3.png" alt="Certificate 3" class="w-full object-contain rounded-md">
+            </div>
+          </div>
+        </div>
+        <!-- tech Section -->
+        <div class="tab-content opacity-0 pointer-events-none absolute" id="tech">
+         <div class="grid grid-cols-4 md:grid-cols-6 gap-6 px-8">
+           <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg" data-aos="fade-up-right">
+            <img src="html-5.svg" alt="HTML" class="w-full object-contain rounded-md mb-4">
+             <h3 class="text-lg font-semibold text-center">HTML 5</h3>
+           </div>
+           <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg" data-aos="fade-up-right">
+             <img src="css.svg" alt="CSS" class="w-full object-contain rounded-md mb-4">
+             <h3 class="text-lg font-semibold text-center">CSS</h3>
+           </div>
+           <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg" data-aos="fade-up-right">
+             <img src="js.svg" alt="JavaScript" class="w-full object-contain rounded-md mb-4">
+             <h3 class="text-lg font-semibold text-center">JavaScript</h3>
+           </div>
+           <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg" data-aos="fade-up-left">
+             <img src="tailwind.svg" alt="Tailwind CSS" class="w-full object-contain rounded-md mb-4">
+             <h3 class="text-lg font-semibold text-center">Tailwind CSS</h3>
+           </div>
+           <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg" data-aos="fade-up-left">
+             <img src="react.svg" alt="React.JS" class="w-full object-contain rounded-md mb-4">
+             <h3 class="text-lg font-semibold text-center">React.JS</h3>
+           </div>
+           <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg" data-aos="fade-up-left">
+             <img src="vite.svg" alt="Vite" class="w-full object-contain rounded-md mb-4">
+             <h3 class="text-lg font-semibold text-center">Vite</h3>
+           </div>
+         </div>
+        </div>
+       </div>
+      </div>
+    </section>
+    <!-- contact me Section -->
+    <section id="contact">
+       <div class="max-w-6xl mx-auto text-center" data-aos="fade-up">
+        <span class="font-bold text-3xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">Contact Me</span>
+        <p class="text-gray-400 text-lg mt-6 leading-relaxed">I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.</p>
+      <p class="text-gray-400 text-lg leading-relaxed">Feel free to reach out!</p>
+      </div>
+      <div class="max-w-6xl mx-auto mt-10" data-aos="fade-up">
+        <form action="mailto:shazahamdy27@gmail.com" method="POST" class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-lg shadow-lg space-y-6">
+          <div>
+            <label for="name" class="block text-white mb-2">Your Name</label>
+            <input type="text" id="name" name="name" required class="w-full p-3 bg-transparent border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 transition">
+          </div>
+          <div>
+            <label for="email" class="block text-white mb-2">Your Email</label>
+            <input type="email" id="email" name="email" required class="w-full p-3 bg-transparent border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 transition">
+          </div>
+          <div>
+            <label for="message" class="block text-white mb-2">Your Message</label>
+            <textarea id="message" name="message" rows="4" required class="w-full p-3 bg-transparent border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 transition"></textarea>
+          </div>
+          <button type="submit" class="bg-gradient-to-r from-purple-500 to-blue-500 hover:bg-purple-700 px-6 py-3 rounded-lg transition duration-300 hover:scale-105" data-aos="fade-up">Send Message</button>
+        </form>
+      </div>
+      
+    </section>
+    <!-- footer Section -->
+    <footer class="border-t border-white/10 p-4 mt-8" data-aos="fade-up">
+      <div class="max-w-6xl mx-auto text-center">
+        <p class="text-gray-400 text-lg leading-relaxed">© 2025 Shaza. All rights reserved.</p>
+      </div>
+    </footer>
+
+  <script>
+    const tabs = document.querySelectorAll(".tab-button");
+    const Contents = document.querySelectorAll(".tab-content");
+
+    tabs.forEach((tab) => {
+  tab.addEventListener("click", () => {
+    tabs.forEach((btn) => btn.classList.remove("active-tab"));
+    Contents.forEach((content) => {
+      content.classList.add("opacity-0", "pointer-events-none", "absolute");
+      content.classList.remove("opacity-100", "pointer-events-auto", "relative");
+    });
+    tab.classList.add("active-tab");
+    const target = tab.getAttribute('data-tab');
+    const activeContent = document.getElementById(target);
+    activeContent.classList.remove("opacity-0", "pointer-events-none", "absolute");
+    activeContent.classList.add("opacity-100", "pointer-events-auto", "relative");
+
+   
+    activeContent.querySelectorAll('[data-aos]').forEach(el => {
+      el.classList.remove('aos-animate');
+    });
+
+    setTimeout(() => {
+      AOS.refreshHard();
+    }, 50);
+  });
+});
+
+  </script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000, 
+    once: true     
+  });
+</script>
+  
+  </body>
+</html>
