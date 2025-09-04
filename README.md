@@ -1,1 +1,1 @@
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Online-green?style=for-the-badge)](portfolio-website-m7r239ove-shazas-projects-5b9346e1.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Online-green?style=for-the-badge)]([portfolio-website-m7r239ove-shazas-projects-5b9346e1.vercel.app](https://portfolio-website-pearl-tau-83.vercel.app/))
