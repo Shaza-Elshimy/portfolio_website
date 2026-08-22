@@ -3,8 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio of Shaza Hamdy, a frontend web developer building responsive and modern web experiences with HTML, CSS, JavaScript, and React."
+    />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Portfolio Website</title>
+    <title>Shaza Hamdy | Frontend Web Developer</title>
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <style type="text/tailwindcss">
       div .bg-clip-text {
@@ -16,12 +20,54 @@
         @apply px-6 py-4 rounded-lg bg-purple-600 text-white font-semibold shadow-md hover:bg-purple-700 transition;
       }
 
+      .skip-link {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 100;
+        transform: translateY(-200%);
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      textarea:focus-visible {
+        outline: 3px solid #a5b4fc;
+        outline-offset: 3px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      .aos-fallback [data-aos] {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
       /* .active-tab {
       @apply bg-gradient-to-r from-purple-500 to-blue-500 hover:bg-purple-700 px-6 py-2 rounded-lg transition;
     } */
     </style>
   </head>
   <body class="bg-white text-gray-900">
+    <a
+      href="#main-content"
+      class="skip-link rounded-lg bg-white px-4 py-2 font-semibold text-indigo-900 shadow-lg"
+    >
+      Skip to main content
+    </a>
     <!-- Background Glow balls -->
     <div
       class="fixed top-0 left-0 w-full h-full -z-10 overflow-hidden bg-[#040015] pointer-events-none"
@@ -50,7 +96,7 @@
         <div class="text-xl font-bold text-indigo-400 tracking-white">
           Portfolio
         </div>
-        <nav class="space-x-6 hidden md:flex">
+        <nav class="space-x-6 hidden md:flex" aria-label="Primary navigation">
           <a
             href="#home"
             class="hover:text-indigo-400 relative group transition"
@@ -69,7 +115,8 @@
             ></span>
           </a>
           <a
-            href="#tech"
+            href="#portfolio"
+            data-tab-target="tech"
             class="hover:text-indigo-400 relative group transition"
             >Skills
             <span
@@ -77,7 +124,8 @@
             ></span>
           </a>
           <a
-            href="#projects"
+            href="#portfolio"
+            data-tab-target="projects"
             class="hover:text-indigo-400 relative group transition"
             >Projects
             <span
@@ -93,8 +141,34 @@
             ></span>
           </a>
         </nav>
+        <button
+          type="button"
+          class="rounded-lg p-2 text-white transition hover:bg-white/10 md:hidden"
+          id="menu-toggle"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Open navigation menu"
+        >
+          <svg viewBox="0 0 24 24" class="h-6 w-6" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <path d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
       </div>
+      <nav
+        id="mobile-menu"
+        class="hidden border-t border-white/10 bg-[#040015]/95 px-4 py-3 md:hidden"
+        aria-label="Mobile navigation"
+      >
+        <div class="mx-auto flex max-w-6xl flex-col gap-1">
+          <a href="#home" class="rounded-lg px-3 py-2 hover:bg-white/10">Home</a>
+          <a href="#about" class="rounded-lg px-3 py-2 hover:bg-white/10">About</a>
+          <a href="#portfolio" data-tab-target="tech" class="rounded-lg px-3 py-2 hover:bg-white/10">Skills</a>
+          <a href="#portfolio" data-tab-target="projects" class="rounded-lg px-3 py-2 hover:bg-white/10">Projects</a>
+          <a href="#contact" class="rounded-lg px-3 py-2 hover:bg-white/10">Contact</a>
+        </div>
+      </nav>
     </header>
+    <main id="main-content">
     <!-- Hero Section -->
     <section
       id="home"
@@ -166,7 +240,8 @@
               Contact Me
             </a>
             <a
-              href="#projects"
+              href="#portfolio"
+              data-tab-target="projects"
               class="border border-indigo-500 hover:bg-purple-600 text-white px-6 py-2 rounded-lg transition"
             >
               See Projects
@@ -181,6 +256,7 @@
             <a
               href="https://github.com/Shaza-Elshimy"
               target="_blank"
+              rel="noopener noreferrer"
               class="bg-white/10 p-1 rounded-full shadow-lg"
             >
               <img
@@ -192,6 +268,7 @@
             <a
               href="https://www.instagram.com/shaza1379"
               target="_blank"
+              rel="noopener noreferrer"
               class="bg-white/10 p-1 rounded-full shadow-lg"
             >
               <img
@@ -203,6 +280,7 @@
             <a
               href="https://www.linkedin.com/in/shaza-elshimy-141a05344"
               target="_blank"
+              rel="noopener noreferrer"
               class="bg-white/10 p-1 rounded-full shadow-lg"
             >
               <img
@@ -218,7 +296,10 @@
         <div class="flex justify-center mt-8 md:mt-0" data-aos="fade-left">
           <img
             src="Images/hero.png"
-            alt="Hero illustration"
+            alt=""
+            width="2000"
+            height="2000"
+            decoding="async"
             class="w-40 sm:w-60 md:w-96 drop-shadow-xl"
           />
         </div>
@@ -259,14 +340,17 @@
             class="flex flex-wrap justify-center md:justify-start gap-4"
             data-aos="fade-up"
           >
-            <a
-              href="#"
-              class="bg-gradient-to-r from-purple-500 to-blue-500 px-5 py-2 rounded-lg transition duration-300 hover:scale-105"
+            <span
+              class="bg-gradient-to-r from-purple-500 to-blue-500 px-5 py-2 rounded-lg opacity-80"
+              aria-disabled="true"
+              title="A CV link will be added when available"
             >
-              Download CV
-            </a>
+              CV coming soon
+            </span>
+            <!-- URL NEEDED FROM USER: current CV file or public URL. -->
             <a
-              href="#Projects"
+              href="#portfolio"
+              data-tab-target="projects"
               class="border border-white px-5 py-2 rounded-lg transition duration-300 hover:scale-105 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500"
             >
               View Projects
@@ -283,8 +367,11 @@
               class="w-full h-full rounded-full bg-[#0f0f2d] flex items-center justify-center"
             >
               <img
-                src="../Images/personal.jpg"
-                alt="My photo"
+                src="Images/personal.jpg"
+                alt="Portrait of Shaza Hamdy"
+                width="768"
+                height="768"
+                decoding="async"
                 class="w-full h-full rounded-full object-cover shadow-lg"
               />
             </div>
@@ -299,13 +386,12 @@
         <!-- Card 1 -->
         <div
           class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg hover:scale-105 transition duration-300"
-          data-aos="fade-right"
         >
           <div class="flex flex-col items-center justify-center gap-2 mb-4">
             <span class="bg-white/10 p-2 rounded-full shadow-lg">
-              <img src="../Images/code.png" alt="Projects" class="w-8 h-8" />
+              <img src="Images/code.png" alt="" class="w-8 h-8" width="64" height="64" decoding="async" />
             </span>
-            <span class="text-lg font-bold">4</span>
+            <span id="project-count" class="text-lg font-bold">4</span>
           </div>
           <p class="font-semibold">Projects</p>
           <p class="text-gray-300 mt-2 text-sm sm:text-base">
@@ -317,17 +403,19 @@
         <!-- Card 2 -->
         <div
           class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg hover:scale-105 transition duration-300"
-          data-aos="fade-up"
         >
           <div class="flex flex-col items-center justify-center gap-2 mb-4">
             <span class="bg-white/10 p-2 rounded-full shadow-lg">
               <img
-                src="../Images/award.png"
-                alt="Certificates"
+                src="Images/award.png"
+                alt=""
                 class="w-8 h-8"
+                width="64"
+                height="64"
+                decoding="async"
               />
             </span>
-            <span class="text-lg font-bold">5</span>
+            <span id="certificate-count" class="text-lg font-bold">5</span>
           </div>
           <p class="font-semibold">Certificates</p>
           <p class="text-gray-300 mt-2 text-sm sm:text-base">
@@ -339,13 +427,12 @@
         <!-- Card 3 -->
         <div
           class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg hover:scale-105 transition duration-300"
-          data-aos="fade-left"
         >
           <div class="flex flex-col items-center justify-center gap-2 mb-4">
             <span class="bg-white/10 p-2 rounded-full shadow-lg">
-              <img src="../Images/skill.png" alt="Skills" class="w-8 h-8" />
+              <img src="Images/skill.png" alt="" class="w-8 h-8" width="64" height="64" decoding="async" />
             </span>
-            <span class="text-lg font-bold">6</span>
+            <span id="skill-count" class="text-lg font-bold">6</span>
           </div>
           <p class="font-semibold">Skills</p>
           <p class="text-gray-300 mt-2 text-sm sm:text-base">
@@ -357,7 +444,7 @@
     </section>
 
     <!--tabs section-->
-    <section class="py-24 px-6 text-white">
+    <section id="portfolio" class="py-24 px-6 text-white">
       <!-- Section Header -->
       <div class="max-w-6xl mx-auto text-center" data-aos="fade-up">
         <span
@@ -375,11 +462,14 @@
       </div>
 
       <!-- Tabs -->
-      <div class="mt-10 flex justify-center gap-4 sm:gap-6 flex-wrap">
+      <div class="mt-10 flex justify-center gap-4 sm:gap-6 flex-wrap" role="tablist" aria-label="Portfolio showcase">
         <button
           data-tab="projects"
           class="active-tab tab-button px-6 py-3 rounded-lg bg-gray-700 text-white font-semibold shadow-md hover:bg-gray-600 transition"
           data-aos="fade-right"
+          role="tab"
+          aria-selected="true"
+          aria-controls="projects"
         >
           Projects
         </button>
@@ -387,6 +477,9 @@
           data-tab="certificates"
           class="tab-button px-6 py-3 rounded-lg bg-gray-700 text-white font-semibold shadow-md hover:bg-gray-600 transition"
           data-aos="fade-up"
+          role="tab"
+          aria-selected="false"
+          aria-controls="certificates"
         >
           Certificates
         </button>
@@ -394,6 +487,9 @@
           data-tab="tech"
           class="tab-button px-6 py-3 rounded-lg bg-gray-700 text-white font-semibold shadow-md hover:bg-gray-600 transition"
           data-aos="fade-left"
+          role="tab"
+          aria-selected="false"
+          aria-controls="tech"
         >
           Tech Stack
         </button>
@@ -405,6 +501,7 @@
         <div
           class="tab-content opacity-100 pointer-events-auto relative"
           id="projects"
+          role="tabpanel"
         >
           <div
             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
@@ -412,12 +509,15 @@
             <!-- Project Card -->
             <div
               class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg flex flex-col"
-              data-aos="fade-up-right"
             >
               <img
-                src="../Images/project1.png"
-                alt="Project 1"
+                src="Images/project1.png"
+                alt="Screenshot of the Gaming Website project"
                 class="w-full h-44 object-cover rounded-md mb-4"
+                width="1920"
+                height="936"
+                loading="lazy"
+                decoding="async"
               />
               <h3 class="text-lg font-semibold">Gaming Website</h3>
               <p class="text-gray-300 text-sm sm:text-base mt-2 flex-grow">
@@ -428,25 +528,27 @@
               >
                 <a
                   href="https://project-games-neon.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="text-blue-500 hover:underline"
                   >Live Demo</a
                 >
-                <a
-                  href="#"
-                  class="bg-white/10 px-3 py-1 rounded-md shadow-md border border-white/20"
-                  >Details</a
-                >
+                <span class="bg-white/10 px-3 py-1 rounded-md shadow-md border border-white/20 opacity-80" aria-disabled="true">Details coming soon</span>
+                <!-- URL NEEDED FROM USER: project repository or case-study URL. -->
               </div>
             </div>
 
             <div
               class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg flex flex-col"
-              data-aos="fade-up"
             >
               <img
-                src="../Images/project2.png"
-                alt="Project 2"
+                src="Images/project2.png"
+                alt="Screenshot of the Rabin-Karp text search project"
                 class="w-full h-44 object-cover rounded-md mb-4"
+                width="1920"
+                height="926"
+                loading="lazy"
+                decoding="async"
               />
               <h3 class="text-lg font-semibold">Rabin-karp text search</h3>
               <p class="text-gray-300 text-sm sm:text-base mt-2 flex-grow">
@@ -455,23 +557,23 @@
               <div
                 class="mt-4 flex justify-between items-center text-sm sm:text-base"
               >
-                <a href="#" class="text-blue-500 hover:underline">Live Demo</a>
-                <a
-                  href="#"
-                  class="bg-white/10 px-3 py-1 rounded-md shadow-md border border-white/20"
-                  >Details</a
-                >
+                <span class="text-blue-300 opacity-80" aria-disabled="true">Live demo unavailable</span>
+                <span class="bg-white/10 px-3 py-1 rounded-md shadow-md border border-white/20 opacity-80" aria-disabled="true">Details coming soon</span>
+                <!-- URL NEEDED FROM USER: live demo and project repository or case-study URL. -->
               </div>
             </div>
 
             <div
               class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg flex flex-col"
-              data-aos="fade-up-left"
             >
               <img
-                src="../Images/project3.png"
-                alt="Project 3"
+                src="Images/project3.png"
+                alt="Screenshot of the Delivery Tracker project"
                 class="w-full h-44 object-cover rounded-md mb-4"
+                width="1920"
+                height="924"
+                loading="lazy"
+                decoding="async"
               />
               <h3 class="text-lg font-semibold">Delivery tracker</h3>
               <p class="text-gray-300 text-sm sm:text-base mt-2 flex-grow">
@@ -480,23 +582,23 @@
               <div
                 class="mt-4 flex justify-between items-center text-sm sm:text-base"
               >
-                <a href="#" class="text-blue-500 hover:underline">Live Demo</a>
-                <a
-                  href="#"
-                  class="bg-white/10 px-3 py-1 rounded-md shadow-md border border-white/20"
-                  >Details</a
-                >
+                <span class="text-blue-300 opacity-80" aria-disabled="true">Live demo unavailable</span>
+                <span class="bg-white/10 px-3 py-1 rounded-md shadow-md border border-white/20 opacity-80" aria-disabled="true">Details coming soon</span>
+                <!-- URL NEEDED FROM USER: live demo and project repository or case-study URL. -->
               </div>
             </div>
 
             <div
               class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg flex flex-col"
-              data-aos="fade-up-left"
             >
               <img
-                src="../Images/project4.png"
-                alt="Project 4"
+                src="Images/project4.png"
+                alt="Screenshot of the Hotel Website project"
                 class="w-full h-44 object-cover rounded-md mb-4"
+                width="1911"
+                height="925"
+                loading="lazy"
+                decoding="async"
               />
               <h3 class="text-lg font-semibold">Hotel Website</h3>
               <p class="text-gray-300 text-sm sm:text-base mt-2 flex-grow">
@@ -507,14 +609,13 @@
               >
                 <a
                   href="https://shaza-elshimy.github.io/project1-hotel/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   class="text-blue-500 hover:underline"
                   >Live Demo</a
                 >
-                <a
-                  href="#"
-                  class="bg-white/10 px-3 py-1 rounded-md shadow-md border border-white/20"
-                  >Details</a
-                >
+                <span class="bg-white/10 px-3 py-1 rounded-md shadow-md border border-white/20 opacity-80" aria-disabled="true">Details coming soon</span>
+                <!-- URL NEEDED FROM USER: project repository or case-study URL. -->
               </div>
             </div>
           </div>
@@ -524,54 +625,73 @@
         <div
           class="tab-content opacity-0 pointer-events-none absolute"
           id="certificates"
+          role="tabpanel"
+          aria-hidden="true"
         >
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div
               class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg"
-              data-aos="fade-up-right"
             >
               <img
-                src="../Images/certeficate1.png"
-                alt="Certificate 1"
+                src="Images/certeficate1.png"
+                alt="Certificate of completion for Learn HTML & CSS"
                 class="w-full h-56 object-cover rounded-md"
-              />
-            </div>
-            <div
-              class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg"
-              data-aos="fade-up"
-            >
-              <img
-                src="../Images/certeficate2.png"
-                alt="Certificate 2"
-                class="w-full h-56 object-cover rounded-md"
-              />
-            </div>
-            <div
-              class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg"
-              data-aos="fade-up-left"
-            >
-              <img
-                src="../Images/certeficate3.png"
-                alt="Certificate 3"
-                class="w-full h-56 object-cover rounded-md"
+                width="1116"
+                height="793"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div
               class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg"
             >
               <img
-                src="../Images/certeficate4.png"
-                alt="Certificate 4"
+                src="Images/certeficate2.png"
+                alt="Certificate of completion for JavaScript"
                 class="w-full h-56 object-cover rounded-md"
+                width="1115"
+                height="793"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div
               class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg"
             >
               <img
-                src="../Images/certeficate5.png"
-                alt="Certificate 5"
+                src="Images/certeficate3.png"
+                alt="Certificate of completion for React JS"
                 class="w-full h-56 object-cover rounded-md"
+                width="1123"
+                height="792"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div
+              class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg"
+            >
+              <img
+                src="Images/certeficate4.png"
+                alt="Certificate of completion for Modern JavaScript: ES6 and beyond"
+                class="w-full h-56 object-cover rounded-md"
+                width="1110"
+                height="788"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div
+              class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg"
+            >
+              <img
+                src="Images/certeficate5.png"
+                alt="Certificate of completion for TypeScript Fundamentals"
+                class="w-full h-56 object-cover rounded-md"
+                width="1116"
+                height="759"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -581,73 +701,93 @@
         <div
           class="tab-content opacity-0 pointer-events-none absolute"
           id="tech"
+          role="tabpanel"
+          aria-hidden="true"
         >
           <div
             class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 px-6"
           >
             <div
               class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg flex flex-col items-center"
-              data-aos="fade-up-right"
             >
               <img
-                src="../Images/html-5.svg"
+                src="Images/html-5.svg"
                 alt="HTML"
                 class="w-16 h-16 object-contain mb-4"
+                width="128"
+                height="128"
+                loading="lazy"
+                decoding="async"
               />
               <h3 class="text-base font-semibold text-center">HTML 5</h3>
             </div>
             <div
               class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg flex flex-col items-center"
-              data-aos="fade-up-right"
             >
               <img
-                src="../Images/css.svg"
+                src="Images/css.svg"
                 alt="CSS"
                 class="w-16 h-16 object-contain mb-4"
+                width="128"
+                height="128"
+                loading="lazy"
+                decoding="async"
               />
               <h3 class="text-base font-semibold text-center">CSS</h3>
             </div>
             <div
               class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg flex flex-col items-center"
-              data-aos="fade-up-right"
             >
               <img
-                src="../Images/js.svg"
+                src="Images/js.svg"
                 alt="JavaScript"
                 class="w-16 h-16 object-contain mb-4"
+                width="128"
+                height="128"
+                loading="lazy"
+                decoding="async"
               />
               <h3 class="text-base font-semibold text-center">JavaScript</h3>
             </div>
             <div
               class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg flex flex-col items-center"
-              data-aos="fade-up-left"
             >
               <img
-                src="../Images/tailwind.svg"
+                src="Images/tailwind.svg"
                 alt="Tailwind CSS"
                 class="w-16 h-16 object-contain mb-4"
+                width="128"
+                height="128"
+                loading="lazy"
+                decoding="async"
               />
               <h3 class="text-base font-semibold text-center">Tailwind CSS</h3>
             </div>
             <div
               class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg flex flex-col items-center"
-              data-aos="fade-up-left"
             >
               <img
-                src="../Images/react.svg"
+                src="Images/react.svg"
                 alt="React.JS"
                 class="w-16 h-16 object-contain mb-4"
+                width="128"
+                height="128"
+                loading="lazy"
+                decoding="async"
               />
               <h3 class="text-base font-semibold text-center">React.JS</h3>
             </div>
             <div
               class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-lg shadow-lg flex flex-col items-center"
-              data-aos="fade-up-left"
             >
               <img
-                src="../Images/vite.svg"
+                src="Images/vite.svg"
                 alt="Vite"
                 class="w-16 h-16 object-contain mb-4"
+                width="128"
+                height="128"
+                loading="lazy"
+                decoding="async"
               />
               <h3 class="text-base font-semibold text-center">Vite</h3>
             </div>
@@ -655,6 +795,7 @@
         </div>
       </div>
     </section>
+    </main>
 
     <!-- contact me Section -->
     <section id="contact" class="py-20 px-4 sm:px-6">
@@ -732,7 +873,7 @@
     <footer class="border-t border-white/10 p-4 mt-8" data-aos="fade-up">
       <div class="max-w-6xl mx-auto text-center">
         <p class="text-gray-400 text-sm leading-relaxed">
-          © 2025 Shaza. All rights reserved.
+          © <span id="current-year">2026</span> Shaza. All rights reserved.
         </p>
       </div>
     </footer>
@@ -740,52 +881,103 @@
     <script>
       const tabs = document.querySelectorAll(".tab-button");
       const Contents = document.querySelectorAll(".tab-content");
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      function showTab(target) {
+        tabs.forEach(btn => {
+          const isActive = btn.dataset.tab === target;
+          btn.classList.toggle("active-tab", isActive);
+          btn.setAttribute("aria-selected", isActive);
+        });
+
+        Contents.forEach(content => {
+          const isActive = content.id === target;
+          content.classList.toggle("opacity-0", !isActive);
+          content.classList.toggle("pointer-events-none", !isActive);
+          content.classList.toggle("absolute", !isActive);
+          content.classList.toggle("opacity-100", isActive);
+          content.classList.toggle("pointer-events-auto", isActive);
+          content.classList.toggle("relative", isActive);
+          content.setAttribute("aria-hidden", !isActive);
+        });
+
+        const activeContent = document.getElementById(target);
+        activeContent.querySelectorAll("[data-aos]").forEach(el => {
+          el.classList.remove("aos-animate");
+        });
+
+        if (window.AOS) {
+          setTimeout(() => AOS.refreshHard(), 50);
+        }
+      }
 
       tabs.forEach(tab => {
         tab.addEventListener("click", () => {
-          tabs.forEach(btn => btn.classList.remove("active-tab"));
-          Contents.forEach(content => {
-            content.classList.add(
-              "opacity-0",
-              "pointer-events-none",
-              "absolute"
-            );
-            content.classList.remove(
-              "opacity-100",
-              "pointer-events-auto",
-              "relative"
-            );
-          });
-          tab.classList.add("active-tab");
-          const target = tab.getAttribute("data-tab");
-          const activeContent = document.getElementById(target);
-          activeContent.classList.remove(
-            "opacity-0",
-            "pointer-events-none",
-            "absolute"
-          );
-          activeContent.classList.add(
-            "opacity-100",
-            "pointer-events-auto",
-            "relative"
-          );
-
-          activeContent.querySelectorAll("[data-aos]").forEach(el => {
-            el.classList.remove("aos-animate");
-          });
-
-          setTimeout(() => {
-            AOS.refreshHard();
-          }, 50);
+          showTab(tab.dataset.tab);
         });
       });
+
+      document.querySelectorAll("[data-tab-target]").forEach(link => {
+        link.addEventListener("click", () => {
+          showTab(link.dataset.tabTarget);
+          mobileMenu.classList.add("hidden");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Open navigation menu");
+        });
+      });
+
+      mobileMenu.querySelectorAll("a:not([data-tab-target])").forEach(link => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Open navigation menu");
+        });
+      });
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Open navigation menu" : "Close navigation menu");
+        mobileMenu.classList.toggle("hidden", isOpen);
+      });
+
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && !mobileMenu.classList.contains("hidden")) {
+          mobileMenu.classList.add("hidden");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Open navigation menu");
+          menuToggle.focus();
+        }
+      });
+
+      document.addEventListener("click", event => {
+        if (!mobileMenu.classList.contains("hidden") && !event.target.closest("header")) {
+          mobileMenu.classList.add("hidden");
+          menuToggle.setAttribute("aria-expanded", "false");
+          menuToggle.setAttribute("aria-label", "Open navigation menu");
+        }
+      });
+
+      document.getElementById("project-count").textContent = document.querySelectorAll("#projects > div > div").length;
+      document.getElementById("certificate-count").textContent = document.querySelectorAll("#certificates img").length;
+      document.getElementById("skill-count").textContent = document.querySelectorAll("#tech h3").length;
+      document.getElementById("current-year").textContent = new Date().getFullYear();
     </script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
-      AOS.init({
-        duration: 1000,
-        once: true,
-      });
+      if (window.AOS) {
+        AOS.init({
+          duration: 1000,
+          once: true,
+        });
+      } else {
+        document.documentElement.classList.add("aos-fallback");
+        document.querySelectorAll("[data-aos]").forEach(element => {
+          element.style.opacity = "1";
+          element.style.transform = "none";
+        });
+      }
     </script>
   </body>
 </html>
