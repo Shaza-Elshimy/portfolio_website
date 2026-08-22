@@ -1,0 +1,46 @@
+import type { Project } from "../types/portfolio";
+
+export const projects: Project[] = [
+  {
+    title: "Gaming Website",
+    slug: "gaming-website",
+    summary: "HTML, CSS, JS project for gaming enthusiasts.",
+    image: "/project1.png",
+    imageAlt: "Screenshot of the Gaming Website project",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    liveUrl: "https://project-games-neon.vercel.app/",
+    featured: false,
+    status: "completed",
+  },
+  {
+    title: "Rabin-karp text search",
+    slug: "rabin-karp-text-search",
+    summary: "HTML, CSS, JS implementation of the Rabin-Karp algorithm.",
+    image: "/project2.png",
+    imageAlt: "Screenshot of the Rabin-Karp text search project",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    featured: false,
+    status: "completed",
+  },
+  {
+    title: "Delivery tracker",
+    slug: "delivery-tracker",
+    summary: "HTML, CSS, JS project for a delivery tracker application.",
+    image: "/project3.png",
+    imageAlt: "Screenshot of the Delivery Tracker project",
+    technologies: ["HTML", "CSS", "JavaScript"],
+    featured: false,
+    status: "completed",
+  },
+  {
+    title: "Hotel Website",
+    slug: "hotel-website",
+    summary: "HTML, CSS project for a hotel website application.",
+    image: "/project4.png",
+    imageAlt: "Screenshot of the Hotel Website project",
+    technologies: ["HTML", "CSS"],
+    liveUrl: "https://shaza-elshimy.github.io/project1-hotel/",
+    featured: false,
+    status: "completed",
+  },
+];
