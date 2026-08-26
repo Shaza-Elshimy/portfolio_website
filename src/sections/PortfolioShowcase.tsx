@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { CertificateCard } from "../components/CertificateCard";
+import { Container } from "../components/Container";
 import { ProjectCard } from "../components/ProjectCard";
 import { ProjectDetailsModal } from "../components/ProjectDetailsModal";
 import { ProjectTabs } from "../components/ProjectTabs";
@@ -36,8 +37,9 @@ export function PortfolioShowcase({ activeTab, onTabChange }: PortfolioShowcaseP
   }
 
   return (
-    <section id="portfolio" className="px-6 py-24 text-white">
-      <div className="mx-auto max-w-6xl text-center" data-aos="fade-up">
+    <section id="portfolio" className="py-20 text-white sm:py-24">
+      <Container>
+      <div className="text-center" data-aos="fade-up">
         <SectionHeading>Portfolio Showcase</SectionHeading>
         <p className="mt-6 text-lg leading-relaxed text-gray-400">Explore my journey through projects, certificates, and tech stack. Each section</p>
         <p className="text-lg leading-relaxed text-gray-400">represents a milestone in my continuous learning path.</p>
@@ -49,7 +51,7 @@ export function PortfolioShowcase({ activeTab, onTabChange }: PortfolioShowcaseP
         <div id="projects-panel" role="tabpanel" hidden={activeTab !== "projects"}>
           <ProjectTabs categories={categories} activeCategory={activeProjectCategory} onChange={setActiveProjectCategory} />
           <div id={`${activeProjectCategory}-projects-panel`} role="tabpanel" aria-labelledby={`${activeProjectCategory}-projects-tab`} className="mt-8">
-            {visibleProjects.length ? <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">{visibleProjects.map((project) => <ProjectCard key={project.slug} project={project} onDetails={openProjectDetails} />)}</div> : <p className="text-center text-gray-300">No projects are available in this category yet.</p>}
+            {visibleProjects.length ? <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">{visibleProjects.map((project) => <ProjectCard key={project.slug} project={project} onDetails={openProjectDetails} />)}</div> : <p className="text-center text-gray-300">No projects are available in this category yet.</p>}
           </div>
           {selectedProject && <ProjectDetailsModal project={selectedProject} returnFocusTo={detailsTrigger} onClose={closeProjectDetails} />}
         </div>
@@ -57,9 +59,10 @@ export function PortfolioShowcase({ activeTab, onTabChange }: PortfolioShowcaseP
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">{certifications.map((certification) => <CertificateCard key={certification.title} certification={certification} />)}</div>
         </div>
         <div id="tech-panel" role="tabpanel" hidden={activeTab !== "tech"}>
-          <div className="grid grid-cols-2 gap-6 px-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">{skills.map((skill) => <article key={skill.name} className="flex flex-col items-center rounded-lg border border-white/20 bg-white/10 p-6 shadow-lg backdrop-blur-md"><img src={skill.icon} alt={skill.name} className="mb-4 h-16 w-16 object-contain" width="128" height="128" loading="lazy" decoding="async" /><h3 className="text-center text-base font-semibold">{skill.name}</h3></article>)}</div>
+          <div className="grid grid-cols-2 gap-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">{skills.map((skill) => <article key={skill.name} className="flex min-h-40 flex-col items-center justify-center rounded-lg border border-white/20 bg-white/10 p-5 shadow-lg backdrop-blur-md"><div className="mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-white/10 p-2">{skill.icon ? <img src={skill.icon} alt="" className="h-full w-full object-contain" width="128" height="128" loading="lazy" decoding="async" /> : <span className="text-center text-xs font-bold leading-tight text-indigo-200" aria-hidden="true">{skill.name.slice(0, 2).toUpperCase()}</span>}</div><h3 className="text-center text-sm font-semibold sm:text-base">{skill.name}</h3></article>)}</div>
         </div>
       </div>
+      </Container>
     </section>
   );
 }

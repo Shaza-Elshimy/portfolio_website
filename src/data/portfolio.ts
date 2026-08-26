@@ -15,12 +15,29 @@ export const socialLinks: SocialLink[] = [
 ];
 
 export const skills: Skill[] = [
-  { name: "HTML 5", icon: "/html-5.svg" },
-  { name: "CSS", icon: "/css.svg" },
-  { name: "JavaScript", icon: "/js.svg" },
+  { name: "HTML5", icon: "/html-5.svg" },
+  { name: "CSS3", icon: "/css.svg" },
+  { name: "Bootstrap", icon: "/bootstrap.webp" },
+  { name: "JavaScript (ES6)", icon: "/js.svg" },
+  { name: "TypeScript", icon: "/typescript.png" },
   { name: "Tailwind CSS", icon: "/tailwind.svg" },
-  { name: "React.JS", icon: "/react.svg" },
+  { name: "React", icon: "/react.svg" },
+  { name: "Next.js", icon: "/nextjs.jpeg" },
   { name: "Vite", icon: "/vite.svg" },
+  { name: "React Router DOM", icon: "/react-router.svg" },
+  { name: "TanStack Query", icon: "/tanstack_query.png" },
+  { name: "Redux Toolkit", icon: "/redux_toolkit.jpeg" },
+  { name: "React Hook Form", icon: "/react_hook_form.png" },
+  { name: "Zod", icon: "/zod.png" },
+  { name: "Node.js", icon: "/nodejs.jpeg" },
+  { name: "Express.js", icon: "/expressjs.webp" },
+  { name: "NestJS", icon: "/nestjs.webp" },
+  { name: "MongoDB", icon: "/mongodb.png" },
+  { name: "PostgreSQL", icon: "/postgreesql.webp" },
+  { name: "Prisma ORM", icon: "/prisma.png" },
+  { name: "Redis", icon: "/redis.svg" },
+  { name: "Docker", icon: "/docker.png" },
+  { name: "OpenAI-compatible LLMs", icon: "/openai.svg" }
 ];
 
 export const certifications: Certification[] = [

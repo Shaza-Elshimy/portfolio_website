@@ -26,7 +26,7 @@ export interface Project {
 
 export interface Skill {
   name: string;
-  icon: string;
+  icon?: string;
 }
 
 export interface Certification {

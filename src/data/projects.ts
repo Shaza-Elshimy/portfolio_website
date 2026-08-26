@@ -43,7 +43,7 @@ export const projects: Project[] = [
     summary: "An AI-powered, course-grounded tutoring platform that uses Socratic guidance, citations, and instructor review instead of giving students direct answers.",
     image: "/morshid_details/screenshots/landing-page-1.png",
     imageAlt: "Morshid educational platform landing page",
-    technologies: ["TypeScript", "React 19", "TanStack Start", "TanStack Router", "TanStack Query", "Tailwind CSS", "NestJS 11", "Node.js", "PostgreSQL", "pgvector", "Prisma ORM", "Redis", "Docker", "Gemini API", "OpenAI-compatible LLMs", "Playwright", "dependency-cruiser"],
+    technologies: ["TypeScript", "React 19", "TanStack Start", "TanStack Router", "TanStack Query", "Tailwind CSS", "NestJS 11", "Node.js", "PostgreSQL", "pgvector", "Prisma ORM", "Redis", "Docker", "Gemini API", "OpenAI-compatible LLMs", "dependency-cruiser"],
     category: "featured",
     repoUrl: "https://github.com/MahmoudAhmed184/Morshid",
     details: {
