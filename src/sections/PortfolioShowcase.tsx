@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { CertificateCard } from "../components/CertificateCard";
 import { ProjectCard } from "../components/ProjectCard";
+import { ProjectDetailsModal } from "../components/ProjectDetailsModal";
+import { ProjectTabs } from "../components/ProjectTabs";
 import { SectionHeading } from "../components/SectionHeading";
 import { certifications, skills } from "../data/portfolio";
 import { projects } from "../data/projects";
-import type { ShowcaseTab } from "../types/portfolio";
+import type { Project, ProjectCategory, ShowcaseTab } from "../types/portfolio";
 
 interface PortfolioShowcaseProps {
   activeTab: ShowcaseTab;
@@ -17,6 +20,21 @@ const tabs: { id: ShowcaseTab; label: string }[] = [
 ];
 
 export function PortfolioShowcase({ activeTab, onTabChange }: PortfolioShowcaseProps) {
+  const [activeProjectCategory, setActiveProjectCategory] = useState<ProjectCategory>("featured");
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [detailsTrigger, setDetailsTrigger] = useState<HTMLButtonElement | null>(null);
+  const categories: ProjectCategory[] = ["featured", "other", "archive"].filter((category): category is ProjectCategory => projects.some((project) => project.category === category));
+  const visibleProjects = projects.filter((project) => project.category === activeProjectCategory);
+
+  function openProjectDetails(project: Project, trigger: HTMLButtonElement) {
+    setDetailsTrigger(trigger);
+    setSelectedProject(project);
+  }
+
+  function closeProjectDetails() {
+    setSelectedProject(null);
+  }
+
   return (
     <section id="portfolio" className="px-6 py-24 text-white">
       <div className="mx-auto max-w-6xl text-center" data-aos="fade-up">
@@ -29,7 +47,11 @@ export function PortfolioShowcase({ activeTab, onTabChange }: PortfolioShowcaseP
       </div>
       <div className="mt-10">
         <div id="projects-panel" role="tabpanel" hidden={activeTab !== "projects"}>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">{projects.map((project) => <ProjectCard key={project.slug} project={project} />)}</div>
+          <ProjectTabs categories={categories} activeCategory={activeProjectCategory} onChange={setActiveProjectCategory} />
+          <div id={`${activeProjectCategory}-projects-panel`} role="tabpanel" aria-labelledby={`${activeProjectCategory}-projects-tab`} className="mt-8">
+            {visibleProjects.length ? <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">{visibleProjects.map((project) => <ProjectCard key={project.slug} project={project} onDetails={openProjectDetails} />)}</div> : <p className="text-center text-gray-300">No projects are available in this category yet.</p>}
+          </div>
+          {selectedProject && <ProjectDetailsModal project={selectedProject} returnFocusTo={detailsTrigger} onClose={closeProjectDetails} />}
         </div>
         <div id="certificates-panel" role="tabpanel" hidden={activeTab !== "certificates"}>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">{certifications.map((certification) => <CertificateCard key={certification.title} certification={certification} />)}</div>
