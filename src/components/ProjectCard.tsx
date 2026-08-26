@@ -7,7 +7,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, onDetails }: ProjectCardProps) {
   return (
-    <article className="flex flex-col rounded-lg border border-white/20 bg-white/10 p-6 shadow-lg backdrop-blur-md">
+    <article className="soft-elevation flex flex-col rounded-lg border border-white/20 bg-white/10 p-6 backdrop-blur-md">
       {project.image ? <img src={project.image} alt={project.imageAlt ?? `${project.title} project preview`} className="mb-4 h-44 w-full rounded-md object-cover" width="1920" height="936" loading="lazy" decoding="async" /> : <div className="mb-4 flex h-44 w-full items-center justify-center rounded-md border border-dashed border-white/25 bg-white/5 px-4 text-center text-sm text-gray-300">Project preview coming soon</div>}
       <h3 className="text-lg font-semibold">{project.title}</h3>
       <p className="mt-2 flex-grow text-sm text-gray-300 sm:text-base">{project.summary}</p>
