@@ -21,7 +21,7 @@ export function Hero({ onTabChange }: { onTabChange: (tab: ShowcaseTab) => void 
           <SocialLinks />
         </div>
         <div className="mt-8 flex justify-center md:mt-0" data-aos="fade-left">
-          <img src="/hero.png" alt="" className="w-40 drop-shadow-xl sm:w-60 md:w-96" width="2000" height="2000" decoding="async" />
+          <img src="/personal.jpeg" alt="Portrait of Shaza Hamdy" className="aspect-square w-40 border-4 border-indigo-400/50 object-cover shadow-2xl shadow-indigo-950/50 sm:w-60 md:w-80" width="768" height="768" decoding="async" />
         </div>
       </Container>
     </section>
