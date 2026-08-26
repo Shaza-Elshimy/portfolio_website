@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import type { Project } from "../types/portfolio";
 import { ProjectLinks } from "./ProjectLinks";
 import { ProjectMediaGallery } from "./ProjectMediaGallery";
@@ -42,10 +43,11 @@ export function ProjectDetailsModal({ project, returnFocusTo, onClose }: Project
   };
 
   const { details } = project;
-  return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/75 p-4" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
-      <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="project-dialog-title" onKeyDown={handleDialogKeyDown} className="max-h-[88vh] w-full max-w-6xl overflow-y-auto rounded-xl border border-white/20 bg-[#0b0725] p-5 shadow-2xl sm:p-8">
-        <header className="mb-6 flex items-start justify-between gap-5"><h2 id="project-dialog-title" className="text-2xl font-bold sm:text-3xl">{project.title}</h2><button ref={closeButtonRef} type="button" onClick={onClose} className="flex min-h-11 min-w-11 items-center justify-center rounded-md border border-white/25 text-xl transition hover:bg-white/10" aria-label={`Close ${project.title} details`}>×</button></header>
+  return createPortal(
+    <div className="fixed inset-0 z-[110] flex items-start justify-center bg-black/75 p-4 pt-[max(1rem,env(safe-area-inset-top))] sm:items-center" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
+      <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby="project-dialog-title" onKeyDown={handleDialogKeyDown} className="flex max-h-[calc(100dvh-2rem)] w-full max-w-6xl flex-col overflow-hidden rounded-xl border border-white/20 bg-[#0b0725] shadow-2xl sm:max-h-[88vh]">
+        <header className="flex shrink-0 items-start justify-between gap-5 border-b border-white/10 bg-[#0b0725] p-5 sm:p-8"><h2 id="project-dialog-title" className="min-w-0 text-2xl font-bold sm:text-3xl">{project.title}</h2><button ref={closeButtonRef} type="button" onClick={onClose} className="flex min-h-11 min-w-11 shrink-0 items-center justify-center rounded-md border border-white/25 text-xl transition hover:bg-white/10" aria-label={`Close ${project.title} details`}>×</button></header>
+        <div className="min-h-0 overflow-y-auto overscroll-contain p-5 sm:p-8">
         <ProjectMediaGallery title={project.title} imageAlt={project.imageAlt ?? `${project.title} project preview`} fallbackImage={project.image} images={project.media?.images} videoUrl={project.media?.videoUrl} />
         <section className="mt-7"><h3 className="text-lg font-semibold text-white">Summary</h3><p className="mt-3 leading-relaxed text-gray-300">{project.summary}</p></section>
         {details?.description && <section className="mt-7"><h3 className="text-lg font-semibold text-white">Description</h3><p className="mt-3 leading-relaxed text-gray-300">{details.description}</p></section>}
@@ -55,7 +57,8 @@ export function ProjectDetailsModal({ project, returnFocusTo, onClose }: Project
         <DetailList title="Challenges" items={details?.challenges} />
         <DetailList title="What I Learned" items={details?.learning} />
         <ProjectLinks project={project} />
+        </div>
       </div>
     </div>
-  );
+  , document.body);
 }

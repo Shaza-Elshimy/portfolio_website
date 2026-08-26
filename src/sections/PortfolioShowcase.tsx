@@ -44,8 +44,8 @@ export function PortfolioShowcase({ activeTab, onTabChange }: PortfolioShowcaseP
         <p className="mt-6 text-lg leading-relaxed text-gray-400">Explore my journey through projects, certificates, and tech stack. Each section</p>
         <p className="text-lg leading-relaxed text-gray-400">represents a milestone in my continuous learning path.</p>
       </div>
-      <div className="mt-10 flex flex-wrap justify-center gap-4 sm:gap-6" role="tablist" aria-label="Portfolio showcase" data-aos="fade-up">
-        {tabs.map((tab) => <button key={tab.id} type="button" role="tab" aria-selected={activeTab === tab.id} aria-controls={`${tab.id}-panel`} onClick={() => onTabChange(tab.id)} className={`${activeTab === tab.id ? "active-tab" : "bg-gray-700 hover:bg-gray-600"} rounded-lg px-6 py-3 font-semibold text-white shadow-md transition`}>{tab.label}</button>)}
+      <div className="mt-10 grid grid-cols-3 gap-2 sm:flex sm:justify-center sm:gap-6" role="tablist" aria-label="Portfolio showcase" data-aos="fade-up">
+        {tabs.map((tab) => <button key={tab.id} type="button" role="tab" aria-selected={activeTab === tab.id} aria-controls={`${tab.id}-panel`} onClick={() => onTabChange(tab.id)} className={`${activeTab === tab.id ? "active-tab" : "bg-gray-700 hover:bg-gray-600"} min-w-0 rounded-lg px-2 py-3 text-sm font-semibold text-white shadow-md transition sm:px-6 sm:text-base`}>{tab.label}</button>)}
       </div>
       <div className="mt-10">
         <div id="projects-panel" role="tabpanel" hidden={activeTab !== "projects"}>
